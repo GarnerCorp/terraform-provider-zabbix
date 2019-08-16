@@ -118,7 +118,7 @@ func getInterfaces(d *schema.ResourceData) (zabbix.HostInterfaces, error) {
 		typeId, ok := HOST_INTERFACE_TYPES[interfaceType]
 
 		if !ok {
-			return nil, errors.New(fmt.Sprintf("%s isnt valid interface type", interfaceType))
+			return nil, errors.New(fmt.Sprintf("%s isn't a valid interface type", interfaceType))
 		}
 
 		ip := d.Get(prefix + "ip").(string)
