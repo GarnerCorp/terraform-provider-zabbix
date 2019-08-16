@@ -177,7 +177,7 @@ func getHostGroups(d *schema.ResourceData, api *zabbix.API) (zabbix.HostGroupIds
 	}
 
 	if len(groups) < configGroups.Len() {
-		log.Printf("Not all of the specified groups were found on zabbix server")
+		log.Printf("Not all of the specified groups were found on Zabbix server")
 
 		for _, n := range configGroups.List() {
 			found := false
@@ -190,9 +190,9 @@ func getHostGroups(d *schema.ResourceData, api *zabbix.API) (zabbix.HostGroupIds
 			}
 
 			if !found {
-				return nil, errors.New(fmt.Sprintf("Host group %s doesn't exist on zabbix server", n))
+				return nil, errors.New(fmt.Sprintf("Host group %s doesn't exist on Zabbix server", n))
 			} else {
-				log.Printf("%s exists on zabbix server", n)
+				log.Printf("%s exists on Zabbix server", n)
 			}
 		}
 	}
@@ -236,7 +236,7 @@ func getTemplates(d *schema.ResourceData, api *zabbix.API) (zabbix.TemplateIds, 
 	}
 
 	if len(templates) < configTemplates.Len() {
-		log.Printf("Not all of the specified templates were found on zabbix server")
+		log.Printf("Not all of the specified templates were found on Zabbix server")
 
 		for _, n := range configTemplates.List() {
 			found := false
@@ -249,9 +249,9 @@ func getTemplates(d *schema.ResourceData, api *zabbix.API) (zabbix.TemplateIds, 
 			}
 
 			if !found {
-				return nil, errors.New(fmt.Sprintf("Template %s doesn't exist on zabbix server", n))
+				return nil, errors.New(fmt.Sprintf("Template %s doesn't exist on Zabbix server", n))
 			} else {
-				log.Printf("Template %s exists on zabbix server", n)
+				log.Printf("Template %s exists on Zabbix server", n)
 			}
 		}
 	}
