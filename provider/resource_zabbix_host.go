@@ -125,7 +125,7 @@ func getInterfaces(d *schema.ResourceData) (zabbix.HostInterfaces, error) {
 		dns := d.Get(prefix + "dns").(string)
 
 		if ip == "" && dns == "" {
-			return nil, errors.New("Atleast one of two dns or ip must be set")
+			return nil, errors.New("At least one of two dns or ip must be set")
 		}
 
 		useip := 1
