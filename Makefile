@@ -23,6 +23,7 @@ $(TARGETS): $(SOURCES)
 release: $(TARGETS)
 	mkdir -p $(RELEASE_DIR)
 	tar -czvf $(RELEASE_DIR)/$(RELEASE) -C $(BUILD_PATH) $(BINARY)
+	scripts/release.sh
 
 install:
 	go install ./...
