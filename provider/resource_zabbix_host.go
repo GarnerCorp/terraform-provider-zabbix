@@ -3,7 +3,7 @@ package provider
 import (
 	"errors"
 	"fmt"
-	"github.com/dainis/zabbix"
+	"github.com/GarnerCorp/go-zabbix-api"
 	"github.com/hashicorp/terraform/helper/schema"
 	"log"
 )
@@ -100,6 +100,27 @@ func resourceZabbixHost() *schema.Resource {
 				Type:     schema.TypeSet,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 				Required: true,
+			},
+			"tls_connect": &schema.Schema{
+				Type:     schema.TypeInt,
+				Optional: true,
+			},
+			"tls_accept": &schema.Schema{
+				Type:     schema.TypeInt,
+				Optional: true,
+			},
+			"tls_psk_identity": &schema.Schema{
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"tls_psk": &schema.Schema{
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"generate_tls_psk": &schema.Schema{
+				Type:     schema.TypeBool,
+				Default:  false,
+				Optional: true,
 			},
 		},
 	}
@@ -268,15 +289,35 @@ func getTemplates(d *schema.ResourceData, api *zabbix.API) (zabbix.TemplateIds, 
 }
 
 func createHostObj(d *schema.ResourceData, api *zabbix.API) (*zabbix.Host, error) {
+
 	host := zabbix.Host{
-		Host:   d.Get("host").(string),
-		Name:   d.Get("name").(string),
+		Host:           d.Get("host").(string),
+		Name:           d.Get("name").(string),
+		TlsConnect:     d.Get("tls_connect").(int),
+		TlsAccept:      d.Get("tls_accept").(int),
+		TlsPskIdentity: d.Get("tls_psk_identity").(string),
+		TlsPsk:         d.Get("tls_psk").(string),
+
 		Status: 0,
 	}
 
 	//0 is monitored, 1 - unmonitored host
 	if !d.Get("monitored").(bool) {
 		host.Status = 1
+	}
+
+	if d.Get("generate_tls_psk").(bool) {
+		if host.TlsPsk != "" {
+			return nil, errors.New("cannot provide `tls_psk` when `generate_tls_psk` is true")
+		}
+
+		randomPsk, err := randomHex(32)
+
+		if err != nil {
+			return nil, err
+		}
+
+		host.TlsPsk = randomPsk
 	}
 
 	hostGroups, err := getHostGroups(d, api)
@@ -345,6 +386,11 @@ func resourceZabbixHostRead(d *schema.ResourceData, meta interface{}) error {
 
 	d.Set("host", host.Host)
 	d.Set("name", host.Name)
+
+	d.Set("tls_connect", host.TlsConnect)
+	d.Set("tls_accept", host.TlsAccept)
+	d.Set("tls_psk", host.TlsPsk)
+	d.Set("tls_psk_identity", host.TlsPskIdentity)
 
 	d.Set("monitored", host.Status == 0)
 

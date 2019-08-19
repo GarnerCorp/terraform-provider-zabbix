@@ -5,7 +5,7 @@ BUILD_PATH=build
 BINARY=terraform-provider-zabbix
 BIN=bin
 TARGETS=darwin linux windows
-VERSION=0.0.4
+VERSION=0.0.6
 RELEASE_DIR=release
 RELEASE=terraform-provider-zabbix_$(VERSION).tar.gz
 
