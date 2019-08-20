@@ -64,7 +64,7 @@ func resourceZabbixHost() *schema.Resource {
 				Required:    true,
 				Description: "Technical name of the host.",
 			},
-			"host_id": &schema.Schema{
+			"hostid": &schema.Schema{
 				Type:        schema.TypeString,
 				Computed:    true,
 				ForceNew:    true,
@@ -369,7 +369,7 @@ func resourceZabbixHostCreate(d *schema.ResourceData, meta interface{}) error {
 
 	log.Printf("Created host id is %s", hosts[0].HostId)
 
-	d.Set("host_id", hosts[0].HostId)
+	d.Set("hostid", hosts[0].HostId)
 	d.SetId(hosts[0].HostId)
 
 	return nil
@@ -378,9 +378,9 @@ func resourceZabbixHostCreate(d *schema.ResourceData, meta interface{}) error {
 func resourceZabbixHostRead(d *schema.ResourceData, meta interface{}) error {
 	api := meta.(*zabbix.API)
 
-	log.Printf("Will read host with id %s", d.Get("host_id").(string))
+	log.Printf("Will read host with id %s", d.Get("hostid").(string))
 
-	host, err := api.HostGetById(d.Get("host_id").(string))
+	host, err := api.HostGetById(d.Get("hostid").(string))
 
 	if err != nil {
 		return err
