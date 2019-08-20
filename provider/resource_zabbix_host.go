@@ -301,6 +301,7 @@ func createHostObj(d *schema.ResourceData, api *zabbix.API) (*zabbix.Host, error
 		TlsAccept:      d.Get("tls_accept").(int),
 		TlsPskIdentity: d.Get("tls_psk_identity").(string),
 		TlsPsk:         d.Get("tls_psk").(string),
+		ProxyHostId:    d.Get("proxy_hostid").(string),
 
 		Status: 0,
 	}
@@ -396,7 +397,7 @@ func resourceZabbixHostRead(d *schema.ResourceData, meta interface{}) error {
 	d.Set("tls_psk", host.TlsPsk)
 	d.Set("tls_psk_identity", host.TlsPskIdentity)
 
-	d.Set("proxy_hostid", host.TlsPskIdentity)
+	d.Set("proxy_hostid", host.ProxyHostId)
 
 	d.Set("monitored", host.Status == 0)
 
