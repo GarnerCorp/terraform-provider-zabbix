@@ -122,6 +122,10 @@ func resourceZabbixHost() *schema.Resource {
 				Default:  false,
 				Optional: true,
 			},
+			"proxy_hostid": &schema.Schema{
+				Type:     schema.TypeString,
+				Optional: true,
+			},
 		},
 	}
 }
@@ -391,6 +395,8 @@ func resourceZabbixHostRead(d *schema.ResourceData, meta interface{}) error {
 	d.Set("tls_accept", host.TlsAccept)
 	d.Set("tls_psk", host.TlsPsk)
 	d.Set("tls_psk_identity", host.TlsPskIdentity)
+
+	d.Set("proxy_hostid", host.TlsPskIdentity)
 
 	d.Set("monitored", host.Status == 0)
 

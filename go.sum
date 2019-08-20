@@ -19,6 +19,8 @@ github.com/GarnerCorp/go-zabbix-api v0.3.1 h1:rDH+3Prv2misPTY4SrYsMOH4iE+eSveodw
 github.com/GarnerCorp/go-zabbix-api v0.3.1/go.mod h1:7uKvXrIjpHfZTc+f52XqKJmDIeFcwZGbq6helDW+wdA=
 github.com/GarnerCorp/go-zabbix-api v0.3.2 h1:WjCYLuXgWRz2hgvmq7kg9x7uFTq3bD96tY9zeyb1YFw=
 github.com/GarnerCorp/go-zabbix-api v0.3.2/go.mod h1:7uKvXrIjpHfZTc+f52XqKJmDIeFcwZGbq6helDW+wdA=
+github.com/GarnerCorp/go-zabbix-api v0.3.3 h1:uJS55Woi6VV/P5T7VyDRCSidTRNl8qoX1sZ5ewaGFr8=
+github.com/GarnerCorp/go-zabbix-api v0.3.3/go.mod h1:7uKvXrIjpHfZTc+f52XqKJmDIeFcwZGbq6helDW+wdA=
 github.com/GarnerCorp/terraform-provider-zabbix v0.0.3 h1:N8fvTVaUx6YVqXpz7vDPb0UoB7ibuEAceUzGlzCyEp0=
 github.com/GarnerCorp/terraform-provider-zabbix v0.0.3/go.mod h1:HWYUZPV0MF3q8DicgXiqSHTGjYNzI0B1DWZVhD+H5Bs=
 github.com/Unknwon/com v0.0.0-20151008135407-28b053d5a292/go.mod h1:KYCjqMOeHpNuTOiFQU6WEcTG7poCJrUs0YgyHNtn1no=
