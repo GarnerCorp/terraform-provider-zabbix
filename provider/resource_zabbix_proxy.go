@@ -48,6 +48,7 @@ func resourceZabbixProxy() *schema.Resource {
 			},
 			"tls_psk": &schema.Schema{
 				Type:     schema.TypeString,
+				Computed: true,
 				Optional: true,
 			},
 			"generate_tls_psk": &schema.Schema{
