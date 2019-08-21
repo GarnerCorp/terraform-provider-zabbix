@@ -312,17 +312,16 @@ func createHostObj(d *schema.ResourceData, api *zabbix.API) (*zabbix.Host, error
 	}
 
 	if d.Get("generate_tls_psk").(bool) {
-		if host.TlsPsk != "" {
-			return nil, errors.New("cannot provide `tls_psk` when `generate_tls_psk` is true")
+		if host.TlsPsk == "" {
+			randomPsk, err := randomHex(32)
+
+			if err != nil {
+				return nil, err
+			}
+
+			host.TlsPsk = randomPsk
+			d.Set("tls_psk", host.TlsPsk)
 		}
-
-		randomPsk, err := randomHex(32)
-
-		if err != nil {
-			return nil, err
-		}
-
-		host.TlsPsk = randomPsk
 	}
 
 	hostGroups, err := getHostGroups(d, api)
