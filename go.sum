@@ -21,6 +21,16 @@ github.com/GarnerCorp/go-zabbix-api v0.3.2 h1:WjCYLuXgWRz2hgvmq7kg9x7uFTq3bD96tY
 github.com/GarnerCorp/go-zabbix-api v0.3.2/go.mod h1:7uKvXrIjpHfZTc+f52XqKJmDIeFcwZGbq6helDW+wdA=
 github.com/GarnerCorp/go-zabbix-api v0.3.3 h1:uJS55Woi6VV/P5T7VyDRCSidTRNl8qoX1sZ5ewaGFr8=
 github.com/GarnerCorp/go-zabbix-api v0.3.3/go.mod h1:7uKvXrIjpHfZTc+f52XqKJmDIeFcwZGbq6helDW+wdA=
+github.com/GarnerCorp/go-zabbix-api v0.4.2 h1:wVS1Azt6N1UpfA9VDfy0VRTUajq+v6IB5s8kreZQ+hQ=
+github.com/GarnerCorp/go-zabbix-api v0.4.2/go.mod h1:7uKvXrIjpHfZTc+f52XqKJmDIeFcwZGbq6helDW+wdA=
+github.com/GarnerCorp/go-zabbix-api v0.4.3 h1:ZiGSaDU0yVm9vwBhl0GHn3M9OHXxNE90dVefMIM/DYE=
+github.com/GarnerCorp/go-zabbix-api v0.4.3/go.mod h1:7uKvXrIjpHfZTc+f52XqKJmDIeFcwZGbq6helDW+wdA=
+github.com/GarnerCorp/go-zabbix-api v0.4.4 h1:VIom1NiGEjIrkBjPCI+EjiPIxzZRZDHL6mfvXG60Ho4=
+github.com/GarnerCorp/go-zabbix-api v0.4.4/go.mod h1:7uKvXrIjpHfZTc+f52XqKJmDIeFcwZGbq6helDW+wdA=
+github.com/GarnerCorp/go-zabbix-api v0.4.5 h1:MXMVzO+zVFPR3dIl38OKvGV+tsz/BpRGn8LO5NkE3L0=
+github.com/GarnerCorp/go-zabbix-api v0.4.5/go.mod h1:7uKvXrIjpHfZTc+f52XqKJmDIeFcwZGbq6helDW+wdA=
+github.com/GarnerCorp/go-zabbix-api v0.4.6 h1:eGUaRscNdRfFXzJgKlx8jP63IXcFWt0nullgHLrythA=
+github.com/GarnerCorp/go-zabbix-api v0.4.6/go.mod h1:7uKvXrIjpHfZTc+f52XqKJmDIeFcwZGbq6helDW+wdA=
 github.com/GarnerCorp/terraform-provider-zabbix v0.0.3 h1:N8fvTVaUx6YVqXpz7vDPb0UoB7ibuEAceUzGlzCyEp0=
 github.com/GarnerCorp/terraform-provider-zabbix v0.0.3/go.mod h1:HWYUZPV0MF3q8DicgXiqSHTGjYNzI0B1DWZVhD+H5Bs=
 github.com/Unknwon/com v0.0.0-20151008135407-28b053d5a292/go.mod h1:KYCjqMOeHpNuTOiFQU6WEcTG7poCJrUs0YgyHNtn1no=
