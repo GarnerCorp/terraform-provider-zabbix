@@ -26,6 +26,35 @@ resource "zabbix_host_group" "zabbix" {
 }
 ```
 
+### Installing a release from GitHub
+
+You'll want to download the appropriate version of the provider
+
+#### Linux/macOS
+
+This shell script should download and install it to the appropriate place:
+
+```sh
+mkdir -p ~/.terraform.d/plugins;
+unamesys=$(uname -s|tr A-Z a-z);
+unamearch=$(uname -m|sed -e 's/x86_64/amd64/;s/i\[3-6\]86/386/');
+FILE="${unamesys}_${unamearch}.tar.gz";
+RELEASE=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/GarnerCorp/terraform-provider-zabbix/releases/latest/|sed -e 's#/tag/#/download/#');
+curl -Ls -O $RELEASE/$FILE;
+tar zxf $FILE;
+rsync -a $(echo $FILE |sed -e 's/\..*//') ~/.terraform.d/plugins
+```
+
+#### Windows
+
+Visit the [releases](https://github.com/GarnerCorp/terraform-provider-zabbix/releases/latest/) page and download the appropriate file:
+
+* windows_386.tar.gz
+* windows_amd64.tar.gz
+
+1. Extract it: `tar zxf windows*.tar.gz`
+2. Copy the expanded folder to `%HOME%\.terraform.d\plugins\`
+
 ### Build and publish to terraform
 
 ```
